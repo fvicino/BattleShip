@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace Battleship.Abstraction
+namespace Battleship.Events
 {
     public delegate void ShotLandedHandler(object sender, ShotEventArgs e);
 

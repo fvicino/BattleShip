@@ -1,9 +1,9 @@
-﻿using Battleship.Abstraction;
+﻿using Battleship.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battleship.Implementation
+namespace Battleship
 {
     public class Shipyard : IShipyard
     {

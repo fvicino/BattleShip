@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 
-namespace Battleship.Abstraction
+namespace Battleship.Events
 {
     public delegate void TransmissionReceivedHandler(object sender, TransmissionReceivedArgs e);
 

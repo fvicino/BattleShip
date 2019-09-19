@@ -1,10 +1,11 @@
-﻿using Battleship.Abstraction;
+﻿using Battleship.Abstractions;
+using Battleship.Events;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace Battleship.Implementation
+namespace Battleship
 {
     public class CommandCentre : ICommandCentre
     {

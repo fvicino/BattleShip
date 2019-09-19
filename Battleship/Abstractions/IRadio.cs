@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Battleship.Events;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace Battleship.Abstraction
+namespace Battleship.Abstractions
 {
     public interface IRadio
     {

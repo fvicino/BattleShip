@@ -1,11 +1,12 @@
-﻿using Battleship.Abstraction;
+﻿using Battleship.Abstractions;
+using Battleship.Events;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace Battleship.Implementation
+namespace Battleship
 {
     public class Ship: IShip
     {

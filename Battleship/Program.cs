@@ -1,5 +1,5 @@
-﻿using Battleship.Abstraction;
-using Battleship.Implementation;
+﻿using Battleship;
+using Battleship.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Drawing;

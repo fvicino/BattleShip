@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace Battleship.Implementation
+namespace Battleship.Abstractions
 {
     public interface IShip
     {

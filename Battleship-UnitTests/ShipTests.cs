@@ -1,6 +1,5 @@
 using Battleship;
-using Battleship.Abstraction;
-using Battleship.Implementation;
+using Battleship.Abstractions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;

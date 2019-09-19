@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Battleship.Events;
+using System;
 using System.Drawing;
 
-namespace Battleship.Abstraction
+namespace Battleship.Abstractions
 {
     public interface IBattleTheatre
     {
