@@ -1,16 +1,47 @@
 ﻿using Battleship.Abstraction;
+using System;
+using System.Drawing;
 
 namespace Battleship.Implementation
 {
+
     public class BattleTheatre : IBattleTheatre
     {
-        public int Height => throw new System.NotImplementedException();
+        int _shotId = 0;
+        public int Height { get { return 10; } }
 
-        public int Width { set => throw new System.NotImplementedException(); }
+        public int Width { get { return 10; } }
 
-        public void Attack()
+        event ShotLandedHandler onShotfired;
+
+        object lockObject = new Object();
+
+        public event ShotLandedHandler ShotLanded
         {
-            throw new System.NotImplementedException();
+            add
+            {
+                lock (lockObject) {
+                    onShotfired += value;
+                }
+            }
+
+            remove
+            {
+                lock (lockObject)
+                {
+                    onShotfired -= value;
+                }
+
+            }
+        }
+
+        public void ShotFired(Point location)
+        {
+            _shotId++;
+            onShotfired?.Invoke(this, new ShotEventArgs(_shotId, location));
         }
     }
+
+
+
 }

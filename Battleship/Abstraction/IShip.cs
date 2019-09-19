@@ -7,7 +7,10 @@ namespace Battleship.Implementation
 {
     public interface IShip
     {
-        void MoveToPosition(Point location, Direction direction);
         int Length { get; }
+
+        BattleStatus Status { get; }
+
+        void MoveToPosition(Point location, Direction direction);
     }
 }
