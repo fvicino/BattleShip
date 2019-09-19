@@ -40,7 +40,7 @@ namespace Battleship
                     //now check if we have any active ships left
                     if (!_ships.Any(ship => ship.Status == BattleStatus.Active))
                     {
-                        Console.WriteLine("All ships have been sunk. {0} team loses!", Team.ToString());
+                        Console.WriteLine("\nAll ships have been sunk. {0} team loses!", Team.ToString());
                     }
                 }
                 else {
