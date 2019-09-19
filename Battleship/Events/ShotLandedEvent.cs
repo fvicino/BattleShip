@@ -9,12 +9,15 @@ namespace Battleship.Events
 
     public class ShotEventArgs : EventArgs
     {
-        public ShotEventArgs(int id, Point location)
+        public ShotEventArgs(int id, Point location, Color team)
         {
+            Team = team;
             Location = location;
             Id = id;
         }
         public Point Location { get; }
         public int Id { get; }
+
+        public Color Team { get; }
     }
 }

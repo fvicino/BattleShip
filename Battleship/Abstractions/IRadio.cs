@@ -8,7 +8,7 @@ namespace Battleship.Abstractions
 {
     public interface IRadio
     {
-        void Transmit(Point target, int shotId, BattleStatus shotResultStatus);
+        void Transmit(Point target, int shotId, BattleStatus shotResultStatus, Color team);
 
         event TransmissionReceivedHandler TransmissionReceived;
     }

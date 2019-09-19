@@ -1,6 +1,7 @@
 ﻿using Battleship.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace Battleship
@@ -15,11 +16,11 @@ namespace Battleship
             _provider = provider;
         }
 
-        public IShip CreateShip(int length)
+        public IShip CreateShip(int length, Color team)
         {
             var ship = (IShip) _provider.GetService(typeof(IShip));
-
             ship.Length = length;
+            ship.Team = team;
             return ship;
         }
 

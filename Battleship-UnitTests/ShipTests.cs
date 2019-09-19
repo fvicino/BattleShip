@@ -70,6 +70,46 @@ namespace Battleship_UnitTests
 
 
         [TestMethod]
+        public void ShipLocation_WhenLLocationIsNonValidPosition_AnExceptionIsThrown()
+        {
+            // Arrange
+            var ship4 = new Ship(_radio, _battleTheatre);
+            ship4.Length = 4;
+
+            // Act
+            // Assert
+
+            //North/south
+            //Attempt to place a ship with a length of 4 with its bow at the top left battleTheatre facing south
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(0,0),Direction.South));
+
+            //Attempt to place a ship with a length of 4 with its bow at the bottom of battleTheatre facing north
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(0, 9), Direction.North));
+
+            //Attempt to place a ship with a length of 4 with its bow outside the battleTheatre facing north
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(0, 10), Direction.North));
+
+            //Attempt to place a ship with a length of 4 with stern just outside the battleTheatre facing north
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(0, 7), Direction.North));
+
+
+            //East/West
+            //Attempt to place a ship with a length of 4 with its bow at the left battleTheatre facing east
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(0, 0), Direction.East));
+
+            //Attempt to place a ship with a length of 4 with its bow at the right of battleTheatre facing West
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(9, 0), Direction.West));
+
+            //Attempt to place a ship with a length of 4 with its bow outside the battleTheatre facing north
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(10, 0), Direction.West));
+
+            //Attempt to place a ship with a length of 4 with stern just outside the battleTheatre facing north
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ship4.MoveToPosition(new Point(7, 0), Direction.West));
+
+        }
+
+
+        [TestMethod]
         public void ShipStatus_WhenAllSectionsAreInactive_ShipStatusIsInactive()
         {
             // Arrange

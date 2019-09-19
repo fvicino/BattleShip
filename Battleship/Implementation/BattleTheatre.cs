@@ -36,10 +36,10 @@ namespace Battleship
             }
         }
 
-        public void ShotFired(Point location)
+        public void ShotFired(Point location, Color team)
         {
             _shotId++;
-            onShotfired?.Invoke(this, new ShotEventArgs(_shotId, location));
+            onShotfired?.Invoke(this, new ShotEventArgs(_shotId, location, team));
         }
     }
 

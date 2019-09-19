@@ -11,6 +11,6 @@ namespace Battleship.Abstractions
 
         event ShotLandedHandler ShotLanded;
 
-        void ShotFired(Point location);
+        void ShotFired(Point location, Color Team);
     }
 }

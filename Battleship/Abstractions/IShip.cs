@@ -12,5 +12,8 @@ namespace Battleship.Abstractions
         BattleStatus Status { get; }
 
         void MoveToPosition(Point location, Direction direction);
+
+        Color Team { get; set; }
+
     }
 }

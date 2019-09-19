@@ -10,12 +10,14 @@ namespace Battleship.Events
 
     public class TransmissionReceivedArgs : EventArgs
     {
-        public TransmissionReceivedArgs(Point target, int shotId, BattleStatus shotResultStatus)
+        public TransmissionReceivedArgs(Point target, int shotId, BattleStatus shotResultStatus, Color team)
         {
             Target = target;
             ShotId = shotId;
             ShotResultStatus = shotResultStatus;
+            Team = team;
         }
+        public Color Team { get; }
         public Point Target { get; }
         public int ShotId { get; }
         public BattleStatus ShotResultStatus { get; }

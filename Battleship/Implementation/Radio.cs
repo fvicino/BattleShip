@@ -32,9 +32,9 @@ namespace Battleship
             }
         }
 
-        public void Transmit(Point target, int shotId, BattleStatus shotResultStatus)
+        public void Transmit(Point target, int shotId, BattleStatus shotResultStatus, Color team)
         {
-            onTransmissionSent?.Invoke(this, new TransmissionReceivedArgs(target, shotId, shotResultStatus ));
+            onTransmissionSent?.Invoke(this, new TransmissionReceivedArgs(target, shotId, shotResultStatus, team ));
         }
 
     }

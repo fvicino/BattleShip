@@ -22,9 +22,7 @@ namespace Battleship
 
             _radio = radio;
         }
-
-
-
+               
         public int Length {
             get
             {
@@ -40,6 +38,8 @@ namespace Battleship
         }
 
         public BattleStatus Status => _sections.Any(section=> section.Status == BattleStatus.Active) ? BattleStatus.Active: BattleStatus.Inactive;
+
+        public Color Team { get; set ; }
 
         public void MoveToPosition(Point location, Direction direction) {
 
@@ -101,20 +101,21 @@ namespace Battleship
 
             //update the section status and report the status
             if (hitSection.Count() > 0 ) {
-
                 hitSection.FirstOrDefault().Status = BattleStatus.Inactive;
-                _radio.Transmit(attackLocation, Id, BattleStatus.Inactive);
+                _radio.Transmit(attackLocation, Id, BattleStatus.Inactive, Team);
             }
             else {
-                _radio.Transmit(attackLocation, Id, BattleStatus.Active);
+                _radio.Transmit(attackLocation, Id, BattleStatus.Active, Team);
             }
 
         }
 
         private void _battleTheatre_ShotLanded(object sender, ShotEventArgs e)
         {
-            //trigger a battle status update to check the state of the ship
-            BattleStatusUpdate(e.Location, e.Id);
+            if (e.Team != Team) {
+                //trigger a battle status update to check the state of the ship
+                BattleStatusUpdate(e.Location, e.Id);
+            }
         }
 
         private class ShipSection

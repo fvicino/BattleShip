@@ -6,5 +6,7 @@ namespace Battleship.Abstractions
     {
         void AddShip(int length, Point location, Direction direction);
         void AttackLocation(Point target);
+
+        Color Team { get; set; }
     }
 }
