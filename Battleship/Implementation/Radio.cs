@@ -10,7 +10,7 @@ namespace Battleship.Implementation
     {
         event TransmissionReceivedHandler onTransmissionSent;
 
-        object lockObject = new Object();
+        object lockObject = new object();
 
         public event TransmissionReceivedHandler TransmissionReceived
         {

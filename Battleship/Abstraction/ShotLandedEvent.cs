@@ -12,7 +12,9 @@ namespace Battleship.Abstraction
         public ShotEventArgs(int id, Point location)
         {
             Location = location;
+            Id = id;
         }
         public Point Location { get; }
+        public int Id { get; }
     }
 }

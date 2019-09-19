@@ -16,6 +16,14 @@ namespace Battleship
             //Start the game
             Console.WriteLine("Welcome to Battleship!");
 
+            //Load a command centre
+            var blueCommand = serviceProvider.GetService<ICommandCentre>();
+
+            blueCommand.AddShip(3, new Point(5,5), Direction.North);
+
+            blueCommand.AttackLocation(new Point(5, 5));
+
+
             //Define ship locations for Blue/Red team
             //bool exit = false;
             //while (true)
@@ -48,10 +56,10 @@ namespace Battleship
             var collection = new ServiceCollection()
                 .AddLogging()
                 .AddSingleton<IBattleTheatre, BattleTheatre>()
-                .AddSingleton<IShipyard>()
-                .AddSingleton<IRadio>()
-                .AddTransient<CommandCentre>()
-                .AddSingleton<IShip>();
+                .AddSingleton<IRadio,Radio>()
+                .AddSingleton<IShip,Ship>()
+                .AddSingleton<IShipyard,Shipyard>()
+                .AddTransient<ICommandCentre,CommandCentre>();
 
             //return a service provider
             return collection.BuildServiceProvider();

@@ -7,7 +7,7 @@ namespace Battleship.Implementation
 {
     public interface IShip
     {
-        int Length { get; }
+        int Length { get; set; }
 
         BattleStatus Status { get; }
 

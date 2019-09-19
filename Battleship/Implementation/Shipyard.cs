@@ -7,6 +7,8 @@ namespace Battleship.Implementation
 {
     public class Shipyard : IShipyard
     {
+        //Factory class that abstracts away access to the service provider
+
         IServiceProvider _provider;
         public Shipyard( IServiceProvider provider )
         {
@@ -17,6 +19,7 @@ namespace Battleship.Implementation
         {
             var ship = (IShip) _provider.GetService(typeof(IShip));
 
+            ship.Length = length;
             return ship;
         }
 

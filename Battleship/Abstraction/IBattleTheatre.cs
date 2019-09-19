@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Battleship.Abstraction
 {
@@ -8,5 +9,7 @@ namespace Battleship.Abstraction
         int Width { get; }
 
         event ShotLandedHandler ShotLanded;
+
+        void ShotFired(Point location);
     }
 }
