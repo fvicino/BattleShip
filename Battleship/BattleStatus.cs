@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Battleship
 {
-    enum BattleStatus
+    public enum BattleStatus
     {
         Active,
         Inactive
