@@ -8,12 +8,18 @@ using System.Text;
 
 namespace Battleship
 {
+    
     public class Ship: IShip
     {
         IList<ShipSection> _sections;
         IRadio _radio;
         IBattleTheatre _battleTheatre;
 
+        /// <summary>
+        /// A ship, composed of any number of ship sections
+        /// </summary>
+        /// <param name="radio">A reference to the radio service</param>
+        /// <param name="battleTheatre">A reference to the battle theatre</param>
         public Ship( IRadio radio, IBattleTheatre battleTheatre)
         {
             //subscribe to the batlefield shot events
@@ -23,13 +29,15 @@ namespace Battleship
             _radio = radio;
         }
                
+        /// <summary>
+        /// Defines the length of the ship
+        /// </summary>
         public int Length {
             get
             {
                 return _sections.Count();
             }
             set {
-
                 if (value < 1) throw new ArgumentOutOfRangeException("Ship length must be greater than 0");
                 
                 //add the appropriate number of ship sections based on length
@@ -37,10 +45,21 @@ namespace Battleship
             }
         }
 
+        /// <summary>
+        /// Reposts the status of the overall ship
+        /// </summary>
         public BattleStatus Status => _sections.Any(section=> section.Status == BattleStatus.Active) ? BattleStatus.Active: BattleStatus.Inactive;
 
+        /// <summary>
+        /// Team color
+        /// </summary>
         public Color Team { get; set ; }
 
+        /// <summary>
+        /// Moves the ship to a specified location on the battle theatre
+        /// </summary>
+        /// <param name="location">The point on the battel theatre (game board) that the ship bow (front end) will be placed</param>
+        /// <param name="direction">The direction that the ship will be facing (North,South,East,West) </param>
         public void MoveToPosition(Point location, Direction direction) {
 
             //Check that we are still on the map if we move to this position
@@ -92,6 +111,11 @@ namespace Battleship
             }
         }
 
+        /// <summary>
+        /// Process the shot messages that are received, update the section status appropriately and report status to the command centre
+        /// </summary>
+        /// <param name="attackLocation"> The point at which the attack was made</param>
+        /// <param name="Id">Shot (attack) identifier</param>
         public void BattleStatusUpdate(Point attackLocation, int Id)
         {
             //check if we are at that location
@@ -118,6 +142,9 @@ namespace Battleship
             }
         }
 
+        /// <summary>
+        /// private class used to represent the ship section status and position
+        /// </summary>
         private class ShipSection
         {
             public ShipSection()
